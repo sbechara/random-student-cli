@@ -29,7 +29,7 @@ function callStudent (courseIdent)
   end
   
   
-  load(courseIdent)
+  load('mech200.mat')
   % .mat file should contain 4 vectors (n - number of students)
   %   names - nx1 vector
   %   calls - nx1 vector
@@ -37,18 +37,18 @@ function callStudent (courseIdent)
   %   blacklist - a vector containing a list of studentNums that have dropped
   
   % Select a random student
-  rStudent = randi(length(names));
+  
+  [ExpandedTickets] = ExpandTickets (ColpTick); %Expand colapsed tickets stored in ColpTick.
+  
+  rStudent = ExpandedTickets(randi(numel(ExpandedTickets))); %Pick student
 
-  % Make sure everyone gets called on at least once before cycling through
-  % roster again. Also, check if student is dropped using blacklist array
-  if max(calls) ~= min(calls)
-      while calls(rStudent) == max(calls)
-          rStudent = randi(length(names));
-      end
-  elseif ismember(rStudent,blacklist)
+
+  if ismember(rStudent,blacklist)
       while ismember(rStudent,blacklist)
-        rStudent = randi(length(names));
+        rStudent = ExpandedTickets(randi(numel(ExpandedTickets)));
       end
+  else rStudent == 0 %If the ticket selected is 0, pick another one.
+       rStudent = ExpandedTickets(randi(numel(ExpandedTickets)));
   end
 
   % "Call" on student
@@ -60,14 +60,26 @@ function callStudent (courseIdent)
       fprintf('\n');
       disp('Skipping...');
       fprintf('\n');
+  elseif present == 0
+      calls(rStudent) = calls(rStudent) + 1;
+      ColpTick (rStudent,1) = ColpTick (rStudent,1) + 2; %Add two tickets for absent student.
   else
       calls(rStudent) = calls(rStudent) + 1;
+  
   end
 
   if present == 1
+      
       numCorrect(rStudent) = numCorrect(rStudent) + 1;
+      ColpTick = ColpTick + 1; %Add ticket to everyone
+      ColpTick (rStudent,1) = ColpTick (rStudent,1) - 1; %Substract the extra tick from the called student.
+
   end
-
-  save("-mat",saveFilePath,"blacklist","calls","names","numCorrect","saveFilePath")
-
+  
+ExpandedTickets = ExpandTickets (ColpTick);
+CollapseTickets (ExpandedTickets);
+  
+  
+saveFilePath = '/Users/abdullahalameri/Documents/MATLAB/mech200.mat';
+  save("-mat",saveFilePath,"blacklist","calls","names","numCorrect","ColpTick","saveFilePath")
 end
