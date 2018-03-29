@@ -35,6 +35,10 @@ elseif present == 0
     probability(rStudent) = probability(rStudent) + .25;%if not here then raise
     %probability by .25
 end
+M = min(probability);
+if M <= 2*eps(1)
+    probability = 10*(probability)
+end
 
 %disp(probability); %just to see how probability works
     save('mech105.mat','blacklist','calls','names','numCorrect','probability')
