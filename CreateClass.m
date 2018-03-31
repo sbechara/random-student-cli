@@ -10,4 +10,4 @@ numCorrect = [0;0;0;0;0];
 %Tickets = repmat(names,1,2);
 ColpTick = [1;1;1;1;1]
 
-save('mech200.mat','blacklist','calls','names','numCorrect','ColpTick')
+save('mech105.mat','blacklist','calls','names','numCorrect','ColpTick')

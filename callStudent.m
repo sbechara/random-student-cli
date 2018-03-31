@@ -29,7 +29,7 @@ function callStudent (courseIdent)
   end
   
   
-  load('mech200.mat')
+  load('mech105.mat')
   % .mat file should contain 4 vectors (n - number of students)
   %   names - nx1 vector
   %   calls - nx1 vector
@@ -80,6 +80,6 @@ ExpandedTickets = ExpandTickets (ColpTick);
 CollapseTickets (ExpandedTickets);
   
   
-saveFilePath = '/Users/abdullahalameri/Documents/MATLAB/mech200.mat';
+saveFilePath = '/Users/abdullahalameri/Documents/MATLAB/random-student-cli/mech105.mat';
   save("-mat",saveFilePath,"blacklist","calls","names","numCorrect","ColpTick","saveFilePath")
 end
