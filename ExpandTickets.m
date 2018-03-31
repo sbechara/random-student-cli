@@ -1,5 +1,8 @@
 function [ExpandedTickets] = ExpandTickets (CollapsedTickets)
-% This function will expand collapsed tickets vector
+%
+% This function will expand collapsed tickets vector, it will do the
+% oppisit of CollapseTickets function.
+%
 
 r = length(CollapsedTickets);
 c = max(CollapsedTickets);
