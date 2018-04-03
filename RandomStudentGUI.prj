@@ -1,0 +1,56 @@
+<deployment-project plugin="plugin.webdeploy" plugin-version="1.0">
+  <configuration file="/home/sbechara/gDrive/CSU/Teaching/random-student-cli/RandomStudentGUI.prj" location="/home/sbechara/gDrive/CSU/Teaching/random-student-cli" name="RandomStudentGUI" target="target.webdeploy" target-name="Web App Compiler">
+    <param.appname>RandomStudentGUI</param.appname>
+    <param.version>0.1</param.version>
+    <param.displayname>RandomStudentGUI</param.displayname>
+    <param.authnamewatermark />
+    <param.summary />
+    <param.screenshot>/tmp/tpb1a537b8_2d4d_4a6a_82c9_7b2be9616de4.png</param.screenshot>
+    <param.intermediate>${PROJECT_ROOT}/RandomStudentGUI/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/RandomStudentGUI/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/RandomStudentGUI/for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}/RandomStudentGUI</param.logdir>
+    <param.target.type>subtarget.web.app</param.target.type>
+    <param.user.defined.mcr.options />
+    <unset>
+      <param.displayname />
+      <param.authnamewatermark />
+      <param.summary />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.target.type />
+      <param.user.defined.mcr.options />
+    </unset>
+    <fileset.web.main>
+      <file>${PROJECT_ROOT}/randomStudentGUI_beta.mlapp</file>
+    </fileset.web.main>
+    <fileset.resources />
+    <fileset.depfun />
+    <fileset.package />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}/RandomStudentGUI/for_testing" name="RandomStudentGUI.ctf" optional="false">/home/sbechara/gDrive/CSU/Teaching/random-student-cli/RandomStudentGUI/for_testing/RandomStudentGUI.ctf</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/usr/local/MATLAB/R2018a</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>4.13.0-37-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
