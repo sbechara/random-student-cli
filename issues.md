@@ -5,4 +5,6 @@
 * Add timestamp function and store in a new array so we can graph frequency of question asking
 * Re-write CLI functions to work with structures.
 * Graphs need to be able to update
-* 
+* Need to create a way to control each student individually if you call more than one
+* Need to check why the randsample function gives an error of nargin when more than 1 is inputed
+* Need to find a way to hide student statics in case it is considered sensitive information
