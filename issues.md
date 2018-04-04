@@ -8,3 +8,5 @@
 * Need to create a way to control each student individually if you call more than one
 * Need to check why the randsample function gives an error of nargin when more than 1 is inputed
 * Need to find a way to hide student statics in case it is considered sensitive information
+* What if we called a group of students and some of them are not in class?
+* 
