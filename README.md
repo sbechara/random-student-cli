@@ -1,3 +1,8 @@
+# NOTE: DEPRECIATED
+I am keeping this repository online as a reference or if someone finds it useful but development has moved to the random-student-gui. The students seem to prefer the visual feedback and professors indicated they would be more likely to use a GUI interface.
+
+You can find the GUI repository here: https://github.com/sbechara/random-student-gui
+
 # random-student-cli README
 The random-student-cli repository contains MATLAB functions that allow me to call on, and keep track of, random students in my class. It allows me to track participation and encourages student engagement. It also removes instructor bias and forces me to call on shy, quiet, or unengaged students.
 
