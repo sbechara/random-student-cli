@@ -1,4 +1,4 @@
-function [courseStats] = initializeRandomStudent (xlsFileName)
+function initializeRandomStudent (xlsFileName)
 % initializeRandomStudent() is meant to be run once at the beginning of each
 % semester to generate the vectors and .mat files necessary for the
 % randomStudent functions to work
