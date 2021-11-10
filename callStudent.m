@@ -43,7 +43,7 @@ while willCall == false
             max(courseStats.NumCalls) - min(courseStats.NumCalls) >=2
         rStudent = randi(length(courseStats.Names));
         % if you aren't here more than 2 times you are out
-    elseif courseStats.NumCalls(rStudent) > 2 && courseStats.NumWrong > 2
+    elseif courseStats.NumCalls(rStudent) > 2 && courseStats.NumWrong(rStudent) > 2
         rStudent = randi(length(courseStats.Names));
     else
         willCall = true;
@@ -57,11 +57,13 @@ fprintf('-----------------------------------------------------------\n\n')
 
 % are they PRESENT as in paying attention
 present = input('Is student "here"? 0-No 1-Yes 2-Skip ---->  ');
+fprintf('\n')
 
 if present ~= 0 && present ~= 1
-    fprintf('\n');
-    disp('Skipping...');
-    fprintf('\n');
+    fprintf('\n----------------')
+    fprintf('\n Skipping...\n')
+    fprintf('----------------\n\n')
+    courseStats.NumSkipped(rStudent) = courseStats.NumSkipped(rStudent)+1;
 else
     courseStats.NumCalls(rStudent) = courseStats.NumCalls(rStudent) + 1;
 end
@@ -72,6 +74,11 @@ if present == 1
     fprintf('\nNice Work! %s\n',string(courseStats.Names(rStudent)));
     fprintf('You have been called on %i times and have been present %i times\n',courseStats.NumCalls(rStudent),courseStats.NumCorrect(rStudent))
     fprintf('-----------------------------------------------------------\n\n')
+    disp(courseStats(rStudent,2:end))
+elseif present == 0
+    fprintf('\n----------------')
+    fprintf('\n Bummer man... \n')
+    fprintf('----------------\n\n')
 end
 
 save(courseIdent)
