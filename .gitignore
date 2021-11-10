@@ -2,3 +2,4 @@
 *.xls
 *.mat
 *.xlsx
+.DS_Store
