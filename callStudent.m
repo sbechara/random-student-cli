@@ -1,10 +1,10 @@
 % Copyright (C) 2018 Samuel Bechara
-% 
+%
 % This program is free software; you can redistribute it and/or modify it
 % under the terms of the GNU General Public License as published by
 % the Free Software Foundation; either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -12,62 +12,68 @@
 
 % Author: Samuel Bechara <sbechara@sbechara-ThinkPad-T440s>
 % Created: 2018-01-04
+% Last modified: 9-Nov-2021
 
 function callStudent (courseIdent)
-  % callStudent() is a function that allows instructors to track participation
-  %
-  % It is reccomended to call this function from a terminal running octave-cli
-  % For more detailed documentation, please see README.md in root folder
-  %
-  % Inputs:
-  %   courseIdent - a string that cooresponds to the .mat file with data
-  %
-  % Copyright (C) 2018 Samuel Bechara
-  
-  if nargin ~= 1
+% callStudent() is a function that allows instructors to track participation
+%
+% It is reccomended to call this function from a terminal running octave-cli
+% For more detailed documentation, please see README.md in root folder
+%
+% Inputs:
+%   courseIdent - a string that cooresponds to the .mat file with data
+%   table. The data table MUST be named courseStats (if you used the
+%   initializer program is will be)
+%
+% Copyright (C) 2018 Samuel Bechara
+
+if nargin ~= 1
     error('This function requires exactly 1 input. See Docs');
-  end
-  
-  
-  load(courseIdent)
-  % .mat file should contain 4 vectors (n - number of students)
-  %   names - nx1 vector
-  %   calls - nx1 vector
-  %   numCorrect - nx1 vector
-  %   blacklist - a vector containing a list of studentNums that have dropped
-  
-  % Select a random student
-  rStudent = randi(length(names));
+end
 
-  % Make sure everyone gets called on at least once before cycling through
-  % roster again. Also, check if student is dropped using blacklist array
-  if max(calls) ~= min(calls)
-      while calls(rStudent) == max(calls)
-          rStudent = randi(length(names));
-      end
-  elseif ismember(rStudent,blacklist)
-      while ismember(rStudent,blacklist)
-        rStudent = randi(length(names));
-      end
-  end
+load(courseIdent) % must contain table named courseStats
 
-  % "Call" on student
-  fprintf('\nStudent number %i is: %s\n\n',rStudent,names{rStudent});
+% Select a random student
+rStudent = randi(length(courseStats.Names));
+willCall = false;
 
-  present = input('Is student "here"? 0-No 1-Yes ---->  ');
+while willCall == false
+    % Make sure everyone gets called on
+    if courseStats.NumCalls(rStudent) == max(courseStats.NumCalls) && ...
+            max(courseStats.NumCalls) - min(courseStats.NumCalls) >=2
+        rStudent = randi(length(courseStats.Names));
+        % if you aren't here more than 2 times you are out
+    elseif courseStats.NumCalls(rStudent) > 2 && courseStats.NumWrong > 2
+        rStudent = randi(length(courseStats.Names));
+    else
+        willCall = true;
+    end
+end
 
-  if present ~= 0 && present ~= 1
-      fprintf('\n');
-      disp('Skipping...');
-      fprintf('\n');
-  else
-      calls(rStudent) = calls(rStudent) + 1;
-  end
+% "Call" on student
+fprintf('\n-----------------------------------------------------------')
+fprintf('\nTime to Shine! %s\n',string(courseStats.Names(rStudent)));
+fprintf('-----------------------------------------------------------\n\n')
 
-  if present == 1
-      numCorrect(rStudent) = numCorrect(rStudent) + 1;
-  end
+% are they PRESENT as in paying attention
+present = input('Is student "here"? 0-No 1-Yes 2-Skip ---->  ');
 
-  save("-mat",saveFilePath,"blacklist","calls","names","numCorrect","saveFilePath")
+if present ~= 0 && present ~= 1
+    fprintf('\n');
+    disp('Skipping...');
+    fprintf('\n');
+else
+    courseStats.NumCalls(rStudent) = courseStats.NumCalls(rStudent) + 1;
+end
+
+if present == 1
+    courseStats.NumCorrect(rStudent) = courseStats.NumCorrect(rStudent) + 1;
+    fprintf('\n-----------------------------------------------------------')
+    fprintf('\nNice Work! %s\n',string(courseStats.Names(rStudent)));
+    fprintf('You have been called on %i times and have been present %i times\n',courseStats.NumCalls(rStudent),courseStats.NumCorrect(rStudent))
+    fprintf('-----------------------------------------------------------\n\n')
+end
+
+save(courseIdent)
 
 end
