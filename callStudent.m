@@ -1,19 +1,3 @@
-% Copyright (C) 2018 Samuel Bechara
-%
-% This program is free software; you can redistribute it and/or modify it
-% under the terms of the GNU General Public License as published by
-% the Free Software Foundation; either version 3 of the License, or
-% (at your option) any later version.
-%
-% This program is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-
-% Author: Samuel Bechara <sbechara@sbechara-ThinkPad-T440s>
-% Created: 2018-01-04
-% Last modified: 9-Nov-2021
-
 function callStudent (courseIdent)
 % callStudent() is a function that allows instructors to track participation
 %
@@ -26,6 +10,9 @@ function callStudent (courseIdent)
 %   initializer program is will be)
 %
 % Copyright (C) 2018 Samuel Bechara
+% Author: Samuel Bechara
+% Created: 2018-01-04
+% Last modified: 9-Nov-2021
 
 if nargin ~= 1
     error('This function requires exactly 1 input. See Docs');

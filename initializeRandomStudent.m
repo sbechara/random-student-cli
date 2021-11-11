@@ -8,8 +8,9 @@ function initializeRandomStudent (xlsFileName)
 %
 % Inputs:
 %   xlsFileName - a string that points to an xls file with the names of
-%   all the students in the section. Note: the name of the xlsFileName
-%   will become the name of the course.
+%   all the students in the section. The file MUST have "Names" in the A1
+%   cell and all the rest of the names in the A column beneath it.
+%   Note: the name of the xlsFileName will become the name of the course.
 % Created: 2018-01-05
 % Last Edited: 9-Nov-2021,2018-01-16
 

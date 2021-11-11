@@ -1,6 +1,10 @@
 function checkStudent(courseIdent,studentName)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%checkStudent() A function to check the stats for an individual student
+%   Inputs:
+%       courseIdent - a string that matches the name of the .mat file
+%       (without the extension). Example: 'm103f21s1'
+%       studentName - a string that matches the name of the student in the
+%       courseStats table. Example: 'Davis, Will'
 load(courseIdent)
 totalCalls = sum(courseStats.NumCalls(studentName));
 totalPresent = sum(courseStats.NumCorrect(studentName));

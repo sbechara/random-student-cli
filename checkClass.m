@@ -1,6 +1,9 @@
 function checkClass(courseIdent)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%checkClass() A function to check the stats for a section
+%   Inputs:
+%       courseIdent - a string that matches the name of the .mat file
+%       (without the extension). Example: 'm103f21s1'
+
 load(courseIdent)
 totalCalls = sum(courseStats.NumCalls);
 totalPresent = sum(courseStats.NumCorrect);
