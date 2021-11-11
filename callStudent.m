@@ -59,7 +59,7 @@ fprintf('-----------------------------------------------------------\n\n')
 present = input('Is student "here"? 0-No 1-Yes 2-Skip ---->  ');
 fprintf('\n')
 
-if present ~= 0 && present ~= 1 || isempty(present)
+if present ~= 0 & present ~= 1 | isempty(present)
     fprintf('\n----------------')
     fprintf('\n Skipping...\n')
     fprintf('----------------\n\n')
@@ -82,6 +82,6 @@ elseif present == 0
     courseStats.NumWrong(rStudent) = courseStats.NumWrong(rStudent) + 1;
 end
 
-save(courseIdent)
+save(courseIdent,'courseStats')
 
 end
