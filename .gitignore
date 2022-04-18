@@ -2,4 +2,6 @@
 *.xls
 *.mat
 *.xlsx
+*.zip
 .DS_Store
+archive/
