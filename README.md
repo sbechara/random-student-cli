@@ -1,4 +1,4 @@
-# random-student-cli README
+# random-student-cli
 The random-student-cli repository contains MATLAB functions that allow me to call on, and keep track of, random students in my class. It allows me to track participation and encourages student engagement. It also removes instructor bias and forces me to call on shy, quiet, or unengaged students.
 
 Furthermore, it is open source so the students can look at the source code and can not accuse me of bias! My intention is for my students to peruse this code. Although there are more powerful and arguably more useful ways to implement these same features, I am teaching courses that emphasize MATLAB and I want to show students that MATLAB can be used for a host of different things. Hopefully this will motivate some of them to use MATLAB, git, and other open source tools in the future.
