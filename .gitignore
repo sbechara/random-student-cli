@@ -3,5 +3,5 @@
 *.mat
 *.xlsx
 *.zip
-.DS_Store
+.DS_Store*
 archive/
