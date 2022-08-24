@@ -12,7 +12,11 @@ function callStudent (courseIdent)
 % Copyright (C) 2018 Samuel Bechara
 % Author: Samuel Bechara
 % Created: 2018-01-04
-% Last modified: 9-Nov-2021
+% Last modified: 29-Jul-2022
+
+rng shuffle; %Matlab uses a seed to generate random numbers to produce
+%pseudorandom numbers. By inserting this line we are able to produce a
+%random seed to prevent the same student being called on reboot.
 
 if nargin ~= 1
     error('This function requires exactly 1 input. See Docs');
