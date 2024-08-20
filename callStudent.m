@@ -13,6 +13,7 @@ function callStudent (courseIdent)
 % Author: Samuel Bechara
 % Created: 2018-01-04
 % Last modified: 29-Jul-2022
+% By: Jacob Beauchamp
 
 rng shuffle; %Matlab uses a seed to generate random numbers to produce
 %pseudorandom numbers. By inserting this line we are able to produce a
